@@ -3,16 +3,22 @@ html {
     --book-width: 250px;
 }
 
+p {
+    padding: 0;
+    margin: 0;
+}
+
 .grid-container {
     display: grid;
     grid: 5rem auto 5rem / 1fr 4fr;
     grid-template-areas: "header header"
         "sidebar main"
         "footer footer";
+    gap: 2px;
 }
 
 .grid-container > * {
-    border: 1px solid black;
+    outline: 2px solid black;
 }
 
 .header {
@@ -50,13 +56,32 @@ html {
 }
 
 .book {
+    --bookButtonDisplay: none;
     width: var(--book-width);
     display: flex;
     flex-direction: column;
+    position: relative;
 }
 
-.bookImage {
+.book:hover {
+    --bookButtonDisplay: flex;
+}
+
+.bookImageContainer {
     height: var(--book-height);
     width: var(--book-width);
     background-color: lightblue;
+}
+
+bookImageContainer > img {
+    max-width: ;
+    max-height: 100%;
+}
+
+.bookButtonContainer {
+    display: var(--bookButtonDisplay);
+    gap: 0.5rem;
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
 }
