@@ -1,5 +1,13 @@
 const myLibrary = [];
 
+let html = document.querySelector('html');
+
+let bookHeight = getComputedStyle(html).getPropertyValue('--book-height');
+let bookWidth = getComputedStyle(html).getPropertyValue('--book-width');
+
+bookHeight = bookHeight.split('px')[0];
+bookWidth = bookWidth.split('px')[0];
+
 function Book(title, author = null,
               pages= 0, imgURL = null) {
     if (!new.target) {
@@ -48,7 +56,7 @@ function updateLibrary() {
         bookContainer.setAttribute("class", "book");
         bookContainer.setAttribute("id", book.id);
 
-        let bookImageContainer =   document.createElement("div");
+        let bookImageContainer = document.createElement("div");
         bookImageContainer.setAttribute("class", "bookImageContainer");
         bookContainer.appendChild(bookImageContainer);
 
@@ -100,8 +108,8 @@ function updateLibrary() {
     }
 }
 
-const dummyBook1 = new Book("Paradise Lost", "John Milton", 0);
-const dummyBook2 = new Book("Samson Agonistes", "John Milton", 0);
+const dummyBook1 = new Book("Paradise Lost", "John Milton", 0, "https://images.fineartamerica.com/images/artworkimages/mediumlarge/1/william-blake-adam-eve-granger.jpg");
+const dummyBook2 = new Book("Samson Agonistes", "John Milton", 0, "https://i.pinimg.com/originals/22/62/b3/2262b3eeccbb039eaeba921e8dc8597b.jpg");
 
 const dummyBooks = [dummyBook1, dummyBook2];
 

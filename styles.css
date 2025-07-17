@@ -1,6 +1,8 @@
 html {
     --book-height:  350px;
     --book-width: 250px;
+    --imageWidth: 100%;
+    --imageHeight: auto;
 }
 
 p {
@@ -70,12 +72,14 @@ p {
 .bookImageContainer {
     height: var(--book-height);
     width: var(--book-width);
-    background-color: lightblue;
+    /*background-color: lightblue;*/
+    border: 1px solid black;
 }
 
-bookImageContainer > img {
-    max-width: ;
-    max-height: 100%;
+.bookImageContainer > img {
+    height: var(--book-height);
+    width: var(--book-width);
+    object-fit: contain;
 }
 
 .bookButtonContainer {
